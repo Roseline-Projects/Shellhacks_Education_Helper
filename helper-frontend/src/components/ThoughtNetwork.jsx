@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef} from "react"
+import React, { useCallback, useEffect, useRef, useState} from "react"
 import Thought from "./Thought"
 import { Background, ReactFlow } from '@xyflow/react';
 import "./thoughtnetwork.css"
@@ -8,176 +8,180 @@ import Dagre from '@dagrejs/dagre'
 import { ReactFlowProvider, useNodesState, useEdgesState, useReactFlow} from '@xyflow/react'
 import { Panel } from "@xyflow/react";
 
-const nodesMap = [
+// export const handleCaptureElementClick = (event) => {
+//     setCaptureElementClick(event.target.checked)
+// }
+
+export const nodesMap = [
     {
         id: "topic",
-        data:{label: <Thought name='Placeholder' text='Hellooooooooooooooooooooooooooooooooo'/>},
-        position:{x: 20, y: 0}
+        data:{label: <Thought name='Topic/Working Thesis'/>},
+        position:{x: 0, y: 0}
     },
-
+    
     {
         id: "o1",
-        data:{label: <Thought/>},
-        position:{x: -500, y: 350}
+        data:{label: <Thought name='Observation 1'/>},
+        position:{x: 0, y: 0}
     },
     {
         id: "o2",
-        data:{label: <Thought />},
-        position:{x: 20, y: 250}
+        data:{label: <Thought  name='Observation 2'/>},
+        position:{x: 0, y: 0}
     },
     {
         id: "o3",
-        data:{label: <Thought />},
-        position:{x: 500, y: 350}
+        data:{label: <Thought  name='Observation 3'/>},
+        position:{x: 0, y: 0}
     },
-
-
+    
+    
     {
         id: "o1d1",
-        data:{label: <Thought />},
+        data:{label: <Thought  name='Detail 1' />},
         position:{x: 0, y: 0}
     },    {
         id: "o1d2",
-        data:{},
+        data:{label: <Thought  name='Detail 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o1d3",
-        data:{},
+        data:{label: <Thought  name='Detail 3'/>},
         position:{x: 0, y: 0}
     },
-
-
-
+    
+    
+    
     {
         id: "o2d1",
-        data:{},
+        data:{label: <Thought name='Detail 1'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o2d2",
-        data:{},
+        data:{label: <Thought name='Detail 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o2d3",
-        data:{},
+        data:{label: <Thought name='Detail 3'/>},
         position:{x: 0, y: 0}
     },
-
-
-
+    
+    
+    
     {
         id: "o3d1",
-        data:{},
+        data:{label: <Thought name='Detail 1'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o3d2",
-        data:{},
+        data:{label: <Thought name='Detail 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o3d3",
-        data:{},
+        data:{label: <Thought name='Detail 3'/>},
         position:{x: 0, y: 0}
     },
-
-
-
+    
+    
+    
     {
         id: "o1a1",
-        data:{},
+        data:{label: <Thought name='Analysis 1'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o1a2",
-        data:{},
+        data:{label: <Thought name='Analysis 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o1a3",
-        data:{},
+        data:{label: <Thought name='Analysis 3'/>},
         position:{x: 0, y: 0}
     },
     
-
+    
     {
         id: "o2a1",
-        data:{},
+        data:{label: <Thought name='Analysis 1'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o2a2",
-        data:{},
+        data:{label: <Thought name='Analysis 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o2a3",
-        data:{},
+        data:{label: <Thought name='Analysis 3'/>},
         position:{x: 0, y: 0}
     },
-
+    
     
     {
         id: "o3a1",
-        data:{},
+        data:{label: <Thought name='Analysis 1'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o3a2",
-        data:{},
+        data:{label: <Thought name='Analysis 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o3a3",
-        data:{},
+        data:{label: <Thought name='Analysis 3'/>},
         position:{x: 0, y: 0}
     },
-
+    
     
     {
         id: "o1e1",
-        data:{},
+        data:{label: <Thought name='Evaluation 1'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o1e2",
-        data:{},
+        data:{label: <Thought name='Evaluation 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o1e3",
-        data:{},
+        data:{label: <Thought name='Evaluation 3'/>},
         position:{x: 0, y: 0}
     },
     
-
+    
     {
         id: "o2e1",
-        data:{},
+        data:{label: <Thought name='Evaluation 1'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o2e2",
-        data:{},
+        data:{label: <Thought name='Evaluation 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o2e3",
-        data:{},
+        data:{label: <Thought name='Evaluation 3'/>},
         position:{x: 0, y: 0}
     },
-
+    
     
     {
         id: "o3e1",
-        data:{},
+        data:{label: <Thought name='Evaluation 1'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o3e2",
-        data:{},
+        data:{label: <Thought name='Evaluation 2'/>},
         position:{x: 0, y: 0}
     },    {
         id: "o3e3",
-        data:{},
+        data:{label: <Thought name='Evaluation 3'/>},
         position:{x: 0, y: 0}
     },
-
+    
     
     {
         id: "thesis",
-        data:{},
+        data:{label: <Thought name='Thesis'/>},
         position:{x: 0, y: 0}
     },
 ]
 
-const edgesMap = [
+export const edgesMap = [
     {
         id: 't-o1',
         source:"topic",
@@ -193,8 +197,8 @@ const edgesMap = [
         source:"topic",
         target:'o3'
     },
-
-
+    
+    
     
     {
         id: 'o1-o1d1',
@@ -211,7 +215,7 @@ const edgesMap = [
         source:"o1",
         target:'o1d3'
     },
-
+    
     
     {
         id: 'o2-o2d1',
@@ -260,7 +264,7 @@ const edgesMap = [
         source:"o1d3",
         target:'o1a3'
     },
-
+    
     
     {
         id: 'o2d1-o2a1',
@@ -309,7 +313,7 @@ const edgesMap = [
         source:"o1a3",
         target:'o1e3'
     },
-
+    
     {
         id: 'o2a1-o2e1',
         source:"o2a1",
@@ -325,7 +329,7 @@ const edgesMap = [
         source:"o2a3",
         target:'o2e3'
     },
-
+    
     {
         id: 'o3a1-o3e1',
         source:"o3a1",
@@ -341,9 +345,76 @@ const edgesMap = [
         source:"o3a3",
         target:'o3e3'
     },
+
+    
+
+    {
+        id: 'o3a1-thesis',
+        source:"o3a1",
+        target:'thesis'
+    },
+    {
+        id: 'o3a2-thesis',
+        source:"o3a2",
+        target:'thesis'
+    },
+    {
+        id: 'o3a3-thesis',
+        source:"o3a3",
+        target:'thesis'
+    },
+
+    {
+        id: 'o2a1-thesis',
+        source:"o2a1",
+        target:'thesis'
+    },
+    {
+        id: 'o2a2-thesis',
+        source:"o2a2",
+        target:'thesis'
+    },
+    {
+        id: 'o2a3-thesis',
+        source:"o2a3",
+        target:'thesis'
+    },
+
+    {
+        id: 'o1a1-thesis',
+        source:"o1a1",
+        target:'thesis'
+    },
+    {
+        id: 'o1a2-thesis',
+        source:"o1a2",
+        target:'thesis'
+    },
+    {
+        id: 'o1a3-thesis',
+        source:"o1a3",
+        target:'thesis'
+    },
+    
 ]
 
-// var dagre = require("dagre")
+//export const [captureElementClick, setCaptureElementClick] = useState(false)
+//onChange={(event) => setCaptureElementClick(event.target.checked)}
+
+export const handleSelect = (event) => {
+    return event.target.id
+}
+
+export let nodeSelected = null
+
+export const onNodeClick = (event, node) => {
+    nodeSelected = node
+    console.log('click node', node)
+    // console.log(node['id'])
+    if(node == null || node == undefined) {
+        nodeSelected = null
+    }
+}
 
 const layoutElements = (nodes, edges) => {
     return {nodes, edges}
@@ -352,7 +423,7 @@ const layoutElements = (nodes, edges) => {
 const getLayoutedElements = (nodes, edges, options) => {
     const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}))
     g.setGraph({rankdir: options.direction})
-
+    
     edges.forEach((edge) => g.setEdge(edge.source, edge.target))
     nodes.forEach((node) =>
         g.setNode(node.id, {
@@ -376,6 +447,8 @@ const getLayoutedElements = (nodes, edges, options) => {
     }
 }
 
+
+
 const LayoutFlow = () => {      {/*initialize many useState hooks*/}
     const {fitView} = useReactFlow()
     const [nodes, setNodes, onNodesChange] = useNodesState(nodesMap)
@@ -397,18 +470,40 @@ const LayoutFlow = () => {      {/*initialize many useState hooks*/}
         edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+        onNodeClick={onNodeClick}
         fitView>
             <Panel position='top-right'>
                 <button onClick={() => onLayout('TB')}>Vertical layout</button>
                 <button onClick={() => onLayout('LR')}>Horizontal layout</button>
             </Panel>
+            <Background/>
+            <Controls/>
         </ReactFlow>
     )
 }
 
+
 function ThoughtNetwork() {
+    const[nodes, setNodes] = useState(nodesMap)
+    const update = (id, newLabel) => {
+        setNodes((nodes) => 
+            nodes.map((node) => {
+                if(node.id == id) {
+                    return {
+                        ...node, data:{...node.data, label:newLabel}
+                    }
+                }
+                return node
+            })
+        )
+    }
+    
+    function requestUpdate(id, newText) {
+        update(id, newText)
+    }
     return (
         <>
+        
         {/* <div>
             <ul>
                 

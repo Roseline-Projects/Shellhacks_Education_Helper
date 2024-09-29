@@ -2,7 +2,15 @@
     width: 100%;
     height: 100%;
     
-    background-color: gainsboro;
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+
+    button {
+        padding: 10px;
+    }
+
 }
 
 .stages-holder{
@@ -14,10 +22,15 @@
         li {
             font-size: 14px;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: grey;
+            color: black;
 
-            padding-left: 2%;
+            padding: 20%;
             border-left: 2px solid black;
         }
 
+}
+
+.completed-level {
+    color: green;
+    background-color: azure;
 }

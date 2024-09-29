@@ -11,9 +11,6 @@ function ThoughtStage() {
     return (
         <>
         <div className="stage-container"> {/*Tree root*/}
-        
-
-
             {/* <ul>
                 <li>topic/working thesis
                     <ul>

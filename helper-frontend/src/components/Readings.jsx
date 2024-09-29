@@ -17,11 +17,7 @@ function Readings(props) {
 
         </div>
         </>
-
-
     )
-
-
 }
 
 export default Readings

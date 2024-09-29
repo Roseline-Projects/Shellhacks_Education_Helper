@@ -8,7 +8,7 @@ function Level() {
     return (
         <>
         <div className="level-visual-container">
-            <p>Level</p> <LevelBar/>
+            <LevelBar/>
 
         </div>
         <div className="progress-bar-container">

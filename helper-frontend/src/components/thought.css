@@ -7,19 +7,20 @@
     display: flex;
     flex-direction: column;
 
-    background-color: bisque;
-    border-radius: 30%;
+    background-color: #CDE8E5;
+    border-radius: 15%;
     border-width: 2px;
     border-color: black;
 
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 300px;
 
     padding: 1em;
     
     text-align: center;
     align-items: center;
     justify-content: center;
+
 }
 
 #thought-name{
@@ -34,7 +35,17 @@
     font-size: 14px;
     
     margin: 1em 0 1em 0;
-    overflow:scroll;
-    scrollbar-width: thin;
+}
+
+.text-input-node {
+    background-color: rgb(255, 255, 255, 0.0);
+    border: none;
+    width: auto;
+    padding-bottom: 10%;
+    text-align: center;
+}
+
+.text-input-node:focus {
+    background-color: rgba(255, 255, 255, 0.716);
 
 }

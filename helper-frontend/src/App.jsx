@@ -7,6 +7,7 @@ import ThoughtStage from './components/ThoughtStage'
 import Level from './components/Level'
 import StudentInfo from './components/StudentInfo'
 import ThoughtNetwork from './components/ThoughtNetwork'
+import { completedThoughts } from './components/Thought'
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
     <>
     <div className='main-body-container'>
       <div className='prompt-container'>
-        <Readings prompt='Explain why the ending of jjk was [redacted].' articles='Lorem ipsum odor amet, consectetuer adipiscing elit. Molestie sollicitudin auctor cursus ullamcorper litora tellus. Mollis habitant ultrices pulvinar in ex ut habitasse. Ridiculus non magna curabitur a interdum. Interdum velit sapien himenaeos ultricies; est mauris aliquam. Tincidunt etiam ac risus nec sollicitudin sapien viverra luctus. Sed libero ullamcorper pulvinar purus facilisis congue sollicitudin a.
+        <Readings prompt='Sample prompt regarding the nature of this text.' articles='Lorem ipsum odor amet, consectetuer adipiscing elit. Molestie sollicitudin auctor cursus ullamcorper litora tellus. Mollis habitant ultrices pulvinar in ex ut habitasse. Ridiculus non magna curabitur a interdum. Interdum velit sapien himenaeos ultricies; est mauris aliquam. Tincidunt etiam ac risus nec sollicitudin sapien viverra luctus. Sed libero ullamcorper pulvinar purus facilisis congue sollicitudin a.
 
           Montes malesuada odio volutpat tempus placerat. Penatibus tincidunt magna, sapien lacus a augue? Nostra porta ornare iaculis; mus habitasse rutrum. Fusce integer varius nulla neque magna. Integer eget id blandit dui suspendisse vestibulum. Vel nulla vivamus penatibus ut facilisis. Blandit magna fringilla hac elit pellentesque dui.
 
@@ -29,28 +30,25 @@ function App() {
       <div className='planner-container'>
         <div>
         <div className='student-info-container'>
-          <StudentInfo name='insert name here' class='Eng Lang & Lit' assignment='AP Rhetorical Practice'/>
-
+          <StudentInfo name='Jane Doe' class='Eng Lang & Lit' assignment='AP Rhetorical Practice'/>
         </div>
         <div className='level-container'>
-          <Level/>
+          <Level completion={completedThoughts}/>
 
         </div>
         </div>
         <div className='thought-stage-container'>
           {/* <ThoughtStage/> */}
           <ThoughtNetwork/>
-          
-          <Thought name='Test' text='testing testing 123 testing testing domain expansion testing testing'/>
 
         </div>
 
       </div>
       <div className='node-edit-container'>
-        <ThoughtEditor name='Placeholder' 
-          question1='Why have I done this to myself?' 
-          question2='I could be sleeping rn fr' 
-          question3='hope this helps somebody tho'/>
+        <ThoughtEditor name='Consider...' 
+          question1="When was this literature written and how many that, alongside the author's identity impact this work?"
+          question2='Who is the audience of this literature and what do they stand to gain or lose?' 
+          question3='To what extent does this detail support my claim, and otherwise, the counterclaim?'/>
       </div>
 
     </div>

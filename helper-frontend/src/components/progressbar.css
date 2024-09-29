@@ -3,8 +3,8 @@
     height: 100%;
 }
 
-#progress-bar-placeholder {
-    background-color: beige;
+#progress-bar {
+    background-color: green;
     height: auto;
     width: 100%;
     border: 2px solid black;

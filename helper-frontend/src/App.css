@@ -32,10 +32,23 @@
   overflow: scroll;
   scrollbar-width: thin;
 
+  border-top: 6px solid #CDE8E5;
+
 }
 
 .node-edit-container {
   width: 25%;
   height: 100%;
 
+}
+
+button {
+  border-radius: 20%;
+  border: none;
+  background-color: #54b7de;
+  color: white;
+  padding: 0.5em;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-shadow: #1f6a86b3;
 }
