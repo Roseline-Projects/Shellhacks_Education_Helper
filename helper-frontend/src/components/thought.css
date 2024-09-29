@@ -21,6 +21,10 @@
     align-items: center;
     justify-content: center;
 
+    button {
+        margin-top: 20%;
+    }
+
 }
 
 #thought-name{
@@ -35,6 +39,10 @@
     font-size: 14px;
     
     margin: 1em 0 1em 0;
+
+    textarea{
+        overflow: hidden;
+    }
 }
 
 .text-input-node {
@@ -48,4 +56,8 @@
 .text-input-node:focus {
     background-color: rgba(255, 255, 255, 0.716);
 
+}
+
+.text-input-node:hover {
+    transform: scale(1.3);
 }

@@ -21,7 +21,7 @@ function Thought({name = "Not Yet", text='Write a thought...'}) {
         setTextInput(event.target.value)
         console.log('entered2')
         console.log(event.target.value)
-        if(event.target.value.toString().split(" ").length >= 4 && visited == false) { {/*>=30 words required to gain points*/}
+        if(event.target.value.toString().split(" ").length >= 30 && visited == false) { {/*>=30 words required to gain points*/}
             completedThoughts++
             setVisited(true)
             console.log("thoughts ",completedThoughts)
@@ -44,7 +44,7 @@ function Thought({name = "Not Yet", text='Write a thought...'}) {
             <div className="text-container">
                 <form>
                     <label htmlFor="txt"></label>
-                    <input type='text' defaultValue={text} className="text-input-node" id='txt' onChange={handleSubmission}></input>
+                    <textarea type='text' defaultValue={text} className="text-input-node" id='txt' onChange={handleSubmission}></textarea>
                     <button type='submit' onClick={levelIncrement} class='thought-button'>Validate</button>
                 </form>
             </div>

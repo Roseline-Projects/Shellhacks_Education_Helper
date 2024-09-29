@@ -6,16 +6,7 @@ import { currentLevel } from "./LevelBar";
 
 function ProgressBar() {
     const[progress, setProgress] = useState('0%')
-    function progressionTrack() {
-        // if(completedThoughts == 22) {
-        //     setProgress('100%')
-        // } else if(completedThoughts >= 19) {
-        //     setProgress((19/22.0))
-        // } else if(completedThoughts >= 16) {
-        //     setProgress((15/22.0))
-        // } else if(completedThoughts >= 13) {
-
-        // }
+    const progressionTrack = () => {
         setProgress((completedThoughts/22.0).toString())
         console.log("progress is ", progress)
 

@@ -482,6 +482,10 @@ const LayoutFlow = () => {      {/*initialize many useState hooks*/}
     )
 }
 
+// const Hidden = () => {
+//     const [elements, setEleme]
+// }
+
 
 function ThoughtNetwork() {
     const[nodes, setNodes] = useState(nodesMap)
@@ -503,20 +507,6 @@ function ThoughtNetwork() {
     }
     return (
         <>
-        
-        {/* <div>
-            <ul>
-                
-            </ul>
-        </div> */}
-        {/* <div style={{width: '100%', height: '100%'}}>
-            <ReactFlow nodes={nodes} edges={edges} fitView>
-                <Background />
-                <Controls />
-            </ReactFlow>
-
-        </div> */}
-
             <ReactFlowProvider>
                 <LayoutFlow/>
             </ReactFlowProvider>
