@@ -1,0 +1,41 @@
+.main-body-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.prompt-container {
+  width: 25%;
+  height: 100%;
+}
+
+.planner-container {
+  width: 50%;
+  height: 100%;
+
+}
+
+.student-info-container {
+  height: 10%;
+  width: 100%;
+}
+
+.level-container {
+  height: 10%;
+  width: 100%;
+}
+
+.thought-stage-container {
+  height: 80%;
+  width: 100%;
+  overflow: scroll;
+  scrollbar-width: thin;
+
+}
+
+.node-edit-container {
+  width: 25%;
+  height: 100%;
+
+}

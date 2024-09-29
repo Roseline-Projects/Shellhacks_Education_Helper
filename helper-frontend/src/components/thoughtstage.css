@@ -1,0 +1,101 @@
+.stage-container {
+    width: 100%;
+    height: 100%;
+    background-color: azure;
+}
+
+.diagram-component {
+    width: 100%;
+    height: 100%;
+    border: solid 1px black;
+}
+
+/* .stage-container ul {
+    position: relative;
+    transition: 0.5s;
+}
+
+.stage-container li {
+    display: inline-table;
+    text-align:center;
+    list-style-type: none;
+    position:relative;
+    padding: 5px;
+    transition: .5s;
+}
+
+.stage-container li:before, .stage-container li:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 1px solid black;
+    width: 51%;
+    height: 10px;
+}
+
+.stage-container li:after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid black;
+}
+
+.stage-container li:only-child:after, .stage-container li:only-child:before {
+    display: none;
+}
+
+.stage-container li:only-child {
+    padding-top: 0px;
+}
+
+.stage-container li:first-child:before, .stage-container li:last-child:after {
+    border: 0px none;
+}
+
+.stage-container li:last-child:before {
+    border-right: 1px solid black;
+    border-radius: 0px 5px 0px 0px;
+}
+
+.stage-container li:first-child:after {
+    border-radius: 5px 0px 0px 0px;
+}
+
+.stage-container ul ul:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid black;
+    width: 0px;
+    height: 20px;
+}
+
+.stage-container a {
+    border: 1px solid black;
+    padding: 10px;
+    display: inline-grid;
+    border-radius: 5px;
+    text-decoration-line: none;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+.stage-container a img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px !important;
+    border-radius: 100px;
+    margin: auto;
+}
+
+.stage-container a span {
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    padding: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+} */

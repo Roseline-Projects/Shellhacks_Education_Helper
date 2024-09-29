@@ -1,0 +1,19 @@
+.studentinfo-container {
+    width: 100%;
+    height: 100%;
+
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h2 {
+        font-weight: 500;
+    }
+
+    h3 {
+        font-style: italic;
+        border-left: 2px solid black;
+        padding: 10px;
+    }
+}
