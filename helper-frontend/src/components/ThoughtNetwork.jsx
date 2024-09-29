@@ -416,6 +416,8 @@ export const onNodeClick = (event, node) => {
     }
 }
 
+{/* Citation for the following: Layouting – react flow. React Flow. (n.d.). https://reactflow.dev/learn/layouting/layouting */}
+
 const layoutElements = (nodes, edges) => {
     return {nodes, edges}
 }
